@@ -6,8 +6,8 @@
 // Tested using Ubuntu 20.04.6 LTS OS.
 //
 // To build and run the program from the terminal:
-//  build with "cc ch3_fork_process_1.c -o ch3_fork_process_1"
-//  run with: "./ch3_fork_process_1"
+//  build with "cc ch3p2_fork_process_1.c -o ch3p2_fork_process_1"
+//  run with: "./ch3p2_fork_process_1"
 //
 // The child process will sleep for 60 seconds and the parent process will wait
 // for this before terminating. Run "ps -ef --forest" from a seperate terminal

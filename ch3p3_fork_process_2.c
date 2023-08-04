@@ -6,8 +6,8 @@
 // Tested using Ubuntu 20.04.6 LTS OS
 //
 // To build and run the program from the terminal:
-//  build with "cc ch3_fork_process_2.c -o ch3_fork_process_2"
-//  run with: "./ch3_fork_process_2"
+//  build with "cc ch3p3_fork_process_2.c -o ch3p3_fork_process_2"
+//  run with: "./ch3p3_fork_process_2"
 //
 // The sum variable is modified in different places and by different processes.
 // Try guess what the value of sum at each different print statment before
