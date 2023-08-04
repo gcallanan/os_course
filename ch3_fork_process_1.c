@@ -5,7 +5,7 @@
 //
 // Tested using Ubuntu 20.04.6 LTS OS.
 //
-// To build and run the program  terminal:
+// To build and run the program from the terminal:
 //  build with "cc ch3_fork_process_1.c -o ch3_fork_process_1"
 //  run with: "./ch3_fork_process_1"
 //

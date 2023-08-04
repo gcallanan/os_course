@@ -4,7 +4,7 @@
 //
 // Tested using Ubuntu 20.04.6 LTS OS
 //
-// To build and run the program  terminal:
+// To build and run the program from the terminal:
 //  build with "cc ch3_thread_status.c -o ch3_thread_status"
 //  run with: "./ch3_thread_status"
 //
