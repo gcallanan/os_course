@@ -51,7 +51,8 @@ int main() {
     printf("Parent Process waiting until child process terminates\n");
     // Task 3: For an extra challenge, comment the "wait(NULL);" line out,
     // recompile and run the code. What do you expect to happen? Does the child
-    // process parent ID change during execution? Why?
+    // process parent ID change during execution? Why? Look up orphan processes
+    // for more information.
     wait(NULL);
     printf("Child Complete\n");
   }
