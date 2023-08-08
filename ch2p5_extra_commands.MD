@@ -29,4 +29,4 @@ This example was copied from: https://www.tecmint.com/load-and-unload-kernel-mod
 1. To view all loaded kernel modules run 'lsmod'
 2. View information on a specific kernel module using 'modinfo MODULE_NAME'. example: 'modinfo speedstep-lib'. speedstep-lib is a driver that allows the OS to scale the CPU frequency up and down to save power.
 3. To load a kernel module run 'sudo modprobe MODULE_NAME' (you need root permissions to do this). Example: 'sudo modprobe speedstep-lib'. Run lsmod again, does this module appear?
-4. Remove the module with 'sudo modprobe -r speedstep-lib'. Run lsmod again, has this module disappeared?
+4. Remove the module with 'sudo modprobe -r speedstep-lib'. Run 'lsmod' again, has this module disappeared?

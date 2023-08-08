@@ -5,8 +5,8 @@
 // Tested using Ubuntu 20.04.6 LTS OS
 //
 // To build and run the program from the terminal:
-//  build with "cc ch3p1_thread_status.c -o ch3p1_thread_status"
-//  run with: "./ch3p1_thread_status"
+//  build with "cc ch3p1_process_status.c -o ch3p1_process_status"
+//  run with: "./ch3p1_process_status"
 //
 // When the program runs it will output a pid <PID>. All process information is
 // stored in the temporary location "/proc/<PID>/". You can access this from
