@@ -10,4 +10,9 @@ ch3p3_fork_process_2
 ch4_pthreads
 ch5p1_busy_loop
 ch6p1_synchronisation
+ch12p1_read_from_keyboard_read
+ch12p2_read_from_keyboard_ioctl
+a.out
+ch14p0_file_tables
 .vscode/
+treeDir1
