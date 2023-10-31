@@ -28,4 +28,4 @@ Now lets examine the the inodes of specific files:
         -rw-------   1 root root 2147483648 maj 11  2021 swapfile
         ...
 3. "var" above folder. Notice how "var" has a size equal to 4096 bytes (1 block size). Why is this? (a quick google can answer your question) Remember that all folders in Linux are files.
-4. If you want to get more file system information about a specific file run "stat filename" eg: `stat /swapfile`. Then you can see the number of blocks the file is allocated and the inode if of the blocks
+4. If you want to get more file system information about a specific file run "stat filename" eg: `stat /swapfile`. Then you can see the number of blocks the file is allocated and the inode of the blocks

@@ -1,5 +1,5 @@
 /**
- * A demo showing the difference between passing by value and by reference
+ * A demo showing how to dynamically allocate memory
  * 
  * In a linux terminal compile with: gcc -o memoryAllocation.out memoryAllocation.c
  * And then run with: ./memoryAllocation.out
