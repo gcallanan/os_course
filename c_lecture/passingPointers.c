@@ -1,8 +1,8 @@
 /**
- * A demo showing the difference between passing by value and by reference
+ * A demo showing the difference between passing pointers to a variable vs passing the actual variable
  * 
- * In a linux terminal compile with: gcc -o passByReference.out passByReference.c
- * And then run with: ./passByReference.out
+ * In a linux terminal compile with: gcc -o passingPointers.out passingPointers.c
+ * And then run with: ./passingPointers.out
  */
 
 #include <stdio.h>

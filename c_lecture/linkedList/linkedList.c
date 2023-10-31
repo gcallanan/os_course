@@ -11,7 +11,7 @@ void push_back(struct LinkedList * list, int value){
     node->next = NULL;
     node->data = value;
 
-    // If there are no elements in the list, then assigne front and back to this node
+    // If there are no elements in the list, then assign front and back to this node
     if(list->size == 0){
         list->back = node;
         list->front = node;
@@ -30,7 +30,7 @@ void push_front(struct LinkedList * list, int value){
     node->prev = NULL;
     node->data = value;
 
-    // If there are no elements in the list, then assigne front and back to this node
+    // If there are no elements in the list, then assign front and back to this node
     if(list->size == 0){
         list->back = node;
         list->front = node;
@@ -84,7 +84,7 @@ int pop_front(struct LinkedList * list){
 
 void print_values(struct LinkedList * list){
     struct Node * ptr = list->front;
-    for (size_t i = 0; i < list->size; i++)
+    while (ptr != NULL)
     {
         printf("%i ", ptr->data);
         ptr = ptr->next;
