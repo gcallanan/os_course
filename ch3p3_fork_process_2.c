@@ -50,7 +50,8 @@ int main() {
     // a) 100
     // b) 120
     // c) 130
-    // d) 150
+    // d) 140
+    // e) 150
     printf("4. Sum Value (in parent process): %i\n", sum);
   }
 
