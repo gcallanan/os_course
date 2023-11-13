@@ -15,8 +15,8 @@
 // the critical section of the code and needs to be protected using
 // syncrhonisation mechanisms. We use the the pthreads library and posix
 // semaphores. In the textbook semaphores have wait(S) and signal(S) functions.
-// In the POSIX standard these are known as sem_wait(&mutex) and
-// sem_post(&mutex) respectively.
+// In the POSIX standard these are known as sem_wait(&semaphore) and
+// sem_post(&semaphore) respectively.
 //
 // Try answer some questions.
 // QUESTION 1: What do you expect the value of sum to be at the end of
@@ -27,7 +27,7 @@
 // main thread). Will grab the semaphore first? Is this something we can know?
 // Try run the program a few times to see if a pattern emerges.
 //
-// QUESTION 3: Comment out sem_wait(&mutex) in thread 2, thread 3 and the main
+// QUESTION 3: Comment out sem_wait(&semaphore) in thread 2, thread 3 and the main
 // thread. Recompile the program and run it again. What do you expect the value
 // of sum to be now? Try run the program a few times. Have we introduced a race
 // condition into the program.
@@ -45,7 +45,7 @@
 
 #define LOOP_ITERATIONS 3000000000
 
-sem_t mutex;
+sem_t semaphore;
 
 // This sum variable is modified by all threads and thus needs to be accessed
 // only in a critical section.
@@ -57,14 +57,14 @@ void *thread_1(void *arg) {
   sleep(4);
   printf("Thread 1 Running: Sending signal to semaphore. Other threads may now "
          "execute.\n");
-  sem_post(&mutex);
+  sem_post(&semaphore);
 }
 
 void *thread_2(void *arg) {
   // wait
   printf("Thread 2 waiting on semaphore.\n");
-  sem_wait(&mutex);
-  printf("Thread 2 grabbed semaphore and is entering the critical section\n");
+  sem_wait(&semaphore);
+  printf("Thread 2 decremented semaphore and is entering the critical section\n");
 
   // critical section
   for (size_t i = 0; i < LOOP_ITERATIONS; i++) {
@@ -73,14 +73,14 @@ void *thread_2(void *arg) {
 
   // signal
   printf("Thread 2 critical section done, signaling semaphore\n");
-  sem_post(&mutex);
+  sem_post(&semaphore);
 }
 
 void *thread_3(void *arg) {
   // wait
   printf("Thread 3 waiting on semaphore.\n");
-  sem_wait(&mutex);
-  printf("Thread 3 grabbed semaphore and is entering the critical section\n");
+  sem_wait(&semaphore);
+  printf("Thread 3 decremented semaphore and is entering the critical section\n");
 
   // critical section
   for (size_t i = 0; i < LOOP_ITERATIONS; i++) {
@@ -89,13 +89,13 @@ void *thread_3(void *arg) {
 
   // signal
   printf("Thread 3 critical section done, signaling semaphore\n");
-  sem_post(&mutex);
+  sem_post(&semaphore);
 }
 
 int main() {
   // 1. Initilise semaphore - set its value to zero. This means a signal
   // needs to be sent to the semaphore before threads waiting on it can proceed.
-  sem_init(&mutex, 0, 0);
+  sem_init(&semaphore, 0, 0);
 
   // 2. Start 3 different threads
   // -- Thread 1 (t1) executes function thread_1()
@@ -107,20 +107,20 @@ int main() {
   pthread_create(&t3, NULL, thread_3, NULL);
 
   // 3.1 The main thread in this program also does some processing in the
-  // critical section. So it needs to wait on the mutex.
+  // critical section. So it needs to wait on the sempahore.
   printf("Main Thread waiting on semaphore.\n");
-  sem_wait(&mutex);
+  sem_wait(&semaphore);
   printf(
-      "Main thread grabbed semaphore and is entering the critical section\n");
+      "Main thread decremented semaphore and is entering the critical section\n");
 
   // 3.2 We are now in the critical section, we can modify sum
   for (size_t i = 0; i < LOOP_ITERATIONS; i++) {
     sum = sum + 1;
   }
 
-  // 3.3 We exit the critical section now, so signal the mutex
+  // 3.3 We exit the critical section now, so signal the sempahore
   printf("Main thread critical section done, signaling semaphore\n");
-  sem_post(&mutex);
+  sem_post(&semaphore);
 
   // 4. Wait for all the threads to finish executing
   pthread_join(t1, NULL);
@@ -135,7 +135,7 @@ int main() {
            "in the program!");
   }
 
-  // 6. Clean up the mutex and exit the program.
-  sem_destroy(&mutex);
+  // 6. Clean up the sempahore and exit the program.
+  sem_destroy(&semaphore);
   return 0;
 }
