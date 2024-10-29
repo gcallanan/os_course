@@ -16,7 +16,7 @@
 // you are in the "/proc/<PID>/" directory. If you want the command to keep
 // running every 2 seconds to see how it changes run "watch cat status".
 //
-// The status file has a "State" filed which should show the process status.
+// The status file has a "State" field which should show the process status.
 // This field should change as the program runs.
 //
 // If the process executes faster than you can type the commands, consider
