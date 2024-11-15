@@ -23,17 +23,16 @@ int main() {
   struct timeval t0;
   struct timeval t1;
 
-  gettimeofday(&t0, 0);
   printf("Process %ld starting a loop to keep process busy.\n", (long)getpid());
+  
+  gettimeofday(&t0, 0);
   for (unsigned long i = 0; i < LOOP_ITERATIONS; i++) {
     __asm__ __volatile__("" : "+g"(i) : :);
   }
   gettimeofday(&t1, 0);
 
   double time_spent = (t1.tv_sec - t0.tv_sec) + (t1.tv_usec - t0.tv_usec)/1000000.0;
-
   printf("Process %ld - Busy loop complete after %.2f s.\n", (long)getpid(), time_spent);
 
-  // 4. Process terminates now and is cleaned up by OS
   return 0;
 }
