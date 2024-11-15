@@ -38,7 +38,7 @@ Linux uses the "completly fair scheduler" for assigning normal process prioritie
 Lets try investigate how the nice level affects program execution time when two processes are assigned to the same CPU core:
 1. Run the commands `numactl -C 0 nice -n 0 ./ch5p1_busy_loop` and `time numactl -C 0 nice -n 0 ./ch5p1_busy_loop` in two seperate terminals at the same time. Both processes run with the same priority, so they should finish at the same time. 
 2. Run the commands `numactl -C 0 nice -n 0 ./ch5p1_busy_loop` and `numactl -C 0 nice -n 2 ./ch5p1_busy_loop` in two seperate terminals at the same time. The process with the higher nice value should get more CPU time allocated and finish slightly sooner. Does your experiment match with this statement? How long does each process take to finish?
-3. Run the commands `time numactl -C 0 nice -n 0 ./ch5p1_busy_loop` and `numactl -C 0 nice -n 15 ./ch5p1_busy_loop` in two seperate terminals at the same time. The process with the much higher nice value should get much more processing time and finish much sooner. Does your experiment match with this statement? How long does each process take to finish?
+3. Run the commands `numactl -C 0 nice -n 0 ./ch5p1_busy_loop` and `numactl -C 0 nice -n 15 ./ch5p1_busy_loop` in two seperate terminals at the same time. The process with the much higher nice value should get much more processing time and finish much sooner. Does your experiment match with this statement? How long does each process take to finish?
 
 ## Linux "Real Time" Scheduling
 
