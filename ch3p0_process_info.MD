@@ -19,7 +19,7 @@ Now lets try create a process with subprocesses.
 
 Now lets try examine individual processes. This section assumes you have stopped the stress tool from running that you started in the previous section.
 1. From the terminal, run "stress -c 20".
-2. In a different terminal run "ps -ef –forest" and find the PID of the parent stress process and its children. (The stress tool also displayes the parent PID when you execute the step above)
+2. In a different terminal run "ps -ef –forest" and find the PID of the parent stress process and its children. (The stress tool also displays the parent PID when you execute the step above)
 3. In this terminal navigate to the "proc" directory by running "cd /proc". The proc file system is a pseudo-filesystem that contains all information about processes running on the system.
 4. View all the processes in the proc directory by running "ls" in the terminal. This displays all directories in the proc directory. Each process will have its own directory. The PIDs for the stress process and its children should be displayed among the files. Once a process is terminated, the corresponding directory in /proc is deleted.
 5. Navigate to one of these process directories using "cd PID" where PID is the number/pid found in step 2 above.

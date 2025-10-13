@@ -15,17 +15,24 @@
 
 #include <stdio.h>
 #include <unistd.h>
+#include <sys/time.h>
 
-#define LOOP_ITERATIONS 6400000000
+#define LOOP_ITERATIONS 3200000000
 
 int main() {
+  struct timeval t0;
+  struct timeval t1;
 
-  printf("Run a loop to keep process busy:\n");
+  printf("Process %ld starting a loop to keep process busy.\n", (long)getpid());
+  
+  gettimeofday(&t0, 0);
   for (unsigned long i = 0; i < LOOP_ITERATIONS; i++) {
     __asm__ __volatile__("" : "+g"(i) : :);
   }
-  printf("Busy loop complete\n");
+  gettimeofday(&t1, 0);
 
-  // 4. Process terminates now and is cleaned up by OS
+  double time_spent = (t1.tv_sec - t0.tv_sec) + (t1.tv_usec - t0.tv_usec)/1000000.0;
+  printf("Process %ld - Busy loop complete after %.2f s.\n", (long)getpid(), time_spent);
+
   return 0;
 }
