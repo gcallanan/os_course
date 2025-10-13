@@ -7,6 +7,7 @@ ch2p4_syscalls_4_out.txt
 ch3p1_process_status
 ch3p2_fork_process_1
 ch3p3_fork_process_2
+ch3p4_fork_exec
 ch4_pthreads
 ch5p1_busy_loop
 ch6p1_synchronisation

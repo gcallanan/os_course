@@ -1,6 +1,7 @@
 # !/bin/bash
 # A toy script to print out all the letters between two values. The script will
-# also count out the number of 
+# also count the number of files in the current directory where those letters
+# appear in the file name - this is just to demonstrate how find works
 #
 # Remember to give this file execution permissions. Run:
 #   "chmod +x printLetters.sh" in the terminal
