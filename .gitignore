@@ -17,3 +17,10 @@ a.out
 ch14p0_file_tables
 .vscode/
 treeDir1
+*.cmd
+*.order
+*.symvers
+*.ko
+*.mod
+*.mod.c
+*.o
