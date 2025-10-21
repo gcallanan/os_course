@@ -24,3 +24,5 @@ treeDir1
 *.mod
 *.mod.c
 *.o
+*.out
+*.gch
