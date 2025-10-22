@@ -66,7 +66,10 @@ int main(void) {
               SIGCHLD;        // Signal to send when child terminates
 
   // Create the child process with isolated namespaces
-  // Note: stack pointer is at the high address because stack grows downward
+  // Note: clone is the system call that is made when you call fork(), we
+  //       call it here as we need to pass in the specialized flags above.
+  //       Unlike fork(), clone will launch the child_main() function in the
+  //       child thread.
   pid_t child_pid = clone(child_main, stack + STACK_SIZE, flags, NULL);
   if (child_pid == -1) {
     perror("clone");
